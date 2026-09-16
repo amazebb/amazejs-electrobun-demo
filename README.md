@@ -1,6 +1,6 @@
 # Electrobun AmazeJS World
 
-A simple Electrobun app working with [AmazeJS!](https://github.com/amazebb/amazejs.git)
+A simple [Electrobun](https://github.com/blackboardsh/electrobun.git) app working with [AmazeJS!](https://github.com/amazebb/amazejs.git)
 
 ## What You'll See
 
@@ -10,28 +10,13 @@ This app demonstrates:
 
 ## Getting Started
 
-This project is pinned to Electrobun **2.0.2-beta.27**, which is the current
-git HEAD of [electrobun](https://github.com/blackboardsh/electrobun). Stable
-Electrobun **2.0.1** does not build under current Hutch: the CLI copies
-`bin/cottontail-core` when it sees FFI, and 2.0.1's bundled Cottontail 0.5.0
-does not have that file (`CopySourceMissing`).
+Install Hutch / Electrobun:
 
-`hutch upgrade` / `hutch upgrade canary` only moves the **global** Hutch
-launcher (and the Cottontail that runs scripts). It does not change
-`electrobun.version` in this file. Production Hutch stays on PATH even after
-canary is installed; this app has to name the matching trio itself.
-
-`hutch.config.ts` therefore pins all three:
-
-```ts
-// @hutch cli=0.27.0-canary.8 cottontail=0.7.0-canary.10
-export default {
-  electrobun: { version: "2.0.2-beta.27" },
-  // ...
-};
+```bash
+curl -fsSL https://hutch.blackboard.sh/hutch/install.sh | sh
 ```
 
-Install canary Hutch once if it is not already in `~/.hutch/releases`:
+This repo runs under the nightly canary:
 
 ```bash
 hutch upgrade canary
@@ -40,7 +25,6 @@ hutch upgrade canary
 Then from this directory:
 
 ```bash
-hutch electrobun prepare   # downloads Electrobun 2.0.2-beta.27
 hutch run install
 ```
 
@@ -53,10 +37,6 @@ Both HTML files are already in the bundle. `AMAZE_VIEW` picks which one the wind
 ```
 
 `hutch run dev` with no env is `mvp`.
-
-The pragma makes this project re-exec Hutch 0.27.0-canary.8 even if
-`hutch self version` still prints 0.26.0. `hutch electrobun update` will not
-get you here — it only advances the pin to latest **stable**, still 2.0.1.
 
 Build for production:
 
