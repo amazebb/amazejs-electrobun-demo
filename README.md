@@ -1,13 +1,12 @@
 # Electrobun AmazeJS World
 
-A simple Electrobun app to get you started with the framework.
+A simple Electrobun app working with [AmazeJS!](https://github.com/amazebb/amazejs.git)
 
 ## What You'll See
 
-This hello world app demonstrates:
+This app demonstrates:
 - **Native Window**: A cross-platform desktop window
 - **Web-based UI**: Modern HTML, CSS, and JavaScript interface
-- **Simple Architecture**: Clean separation between Cottontail process and UI
 
 ## Getting Started
 
