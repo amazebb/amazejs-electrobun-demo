@@ -43,8 +43,17 @@ Then from this directory:
 ```bash
 hutch electrobun prepare   # downloads Electrobun 2.0.2-beta.27
 hutch run install
-hutch run dev
 ```
+
+Both HTML files are already in the bundle. `AMAZE_VIEW` picks which one the window loads — do not rewrite `src/bun/index.ts`.
+
+```bash
+./view.sh mvp      # WKWebView / CSS-anchor placement (default)
+./view.sh index    # amazejs table
+./view.sh mvp build
+```
+
+`hutch run dev` with no env is `mvp`.
 
 The pragma makes this project re-exec Hutch 0.27.0-canary.8 even if
 `hutch self version` still prints 0.26.0. `hutch electrobun update` will not

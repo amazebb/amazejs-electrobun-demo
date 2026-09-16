@@ -1,14 +1,20 @@
 import { BrowserWindow } from "electrobun/main";
 
-// Create the main application window
+const views = {
+	mvp: { title: "WKWebView placement", file: "mvp.html" },
+	index: { title: "AmazeJS", file: "index.html" },
+} as const;
+
+const view = process.env["AMAZE_VIEW"] === "index" ? views.index : views.mvp;
+
 new BrowserWindow({
-    title: "Electrobun + AmazeJS - Demo",
-    url: "views://mainview/mvp.html",
-    frame: {
-        width: 800,
-        height: 800,
-        x: 200,
-        y: 200,
-    },
+	title: view.title,
+	url: `views://mainview/${view.file}`,
+	frame: {
+		width: 800,
+		height: 800,
+		x: 200,
+		y: 200,
+	},
 });
 
